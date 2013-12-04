@@ -146,7 +146,6 @@ sleep(0.5)
 my_game.generation.print_screen
 
 
-
 # def generate_neighbors
 #   Cell::CELLS.each do |cell|
 #     cell.find_neighbors
