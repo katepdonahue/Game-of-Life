@@ -20,8 +20,11 @@ describe Game do
     it "should fill the screen with cell objects upon initialization" do
       expect(my_game.screen.board[rand(0..9)][rand(0..29)].class).to eq(Cell)
     end
-    it "should" do
-
+    it "should give cell objects correct height and width values" do
+      expect(my_game.screen.board[2][23].h).to eq(2)
+    end
+    it "should give cell objects correct height and width values" do
+      expect(my_game.screen.board[2][23].w).to eq(23)
     end
   end
 
