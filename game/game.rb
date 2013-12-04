@@ -6,23 +6,15 @@ class Game
     @height = height
     @width = width
     @screen = Board.new(self)
-    create_cells
+    # create_cells
     populate
   end
 
-  def create_cells
-    (height * width).times do
-      Cell.new("0", self) # in this starting position they are all alive
-    end
-  end
-
-  def populate # partition cells into #{height} arrays each with #{width} objects
-    array_i = 0
-    Cell::CELLS.each_with_index do |cell, i|
-      array_i += 1 if (i % width == 0) && (i != 0)
-      cell.h = array_i
-      cell.w = i % width
-      screen.board[array_i] << cell # populate screen
+  def populate
+    height.times do |y|
+      width.times do |x|
+        screen.board[y] << Cell.new("0", self).tap{|c| c.h=y; c.w=x}
+      end
     end
   end
 
@@ -37,3 +29,5 @@ class Game
   end
 
 end
+
+

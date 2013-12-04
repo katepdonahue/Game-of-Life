@@ -3,9 +3,7 @@ require '../board/board'
 require '../cell/cell'
 
 my_game = Game.new(10, 30)
-# my_game.screen.print_screen
-# sleep(0.5)
-# my_game.generation.print_screen
+
 
 
 describe Game do
