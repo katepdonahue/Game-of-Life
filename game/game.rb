@@ -19,11 +19,9 @@ class Game
   def populate # partition cells into #{height} arrays each with #{width} objects
     array_i = 0
     Cell::CELLS.each_with_index do |cell, i|
-      # debugger
       array_i += 1 if (i % width == 0) && (i != 0)
       cell.h = array_i
       cell.w = i % width
-      # debugger
       screen.board[array_i] << cell # populate screen
     end
   end
@@ -31,9 +29,7 @@ class Game
   def generation
     new_screen = Board.new(self)
     screen.board.each do |array|
-      # debugger
       array.each do |cell|
-        # debugger
         new_screen.board[cell.h][cell.w] = cell.tick
       end
     end
