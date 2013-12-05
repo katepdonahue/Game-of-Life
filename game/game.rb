@@ -28,25 +28,43 @@ class Game
   end
 
 ######### methods for setting initial state ###########
-  def block(y, x)
+  def filler(y, x)
     screen.board[y][x].state = "o"
-    screen.board[y][x+1].state = "o"
-    screen.board[y+1][x+1].state = "o"
-    screen.board[y+1][x].state = "o"
   end
 
-  def glider(y, x)
-    screen.board[y][x].state = "o"
-    screen.board[y+1][x+1].state = "o"
-    screen.board[y+1][x+2].state = "o"
-    screen.board[y][x+2].state = "o"
-    screen.board[y-1][x+2].state = "o"
+  def block(y, x)
+    filler(y, x, )
+    filler(y, x+1, )
+    filler(y+1, x+1, )
+    filler(y+1, x, )
+    self
   end
+
+  def se_glider(y, x)
+    filler(y, x)
+    filler(y+1, x+1, )
+    filler(y+1, x+2, )
+    filler(y, x+2, )
+    filler(y-1, x+2, )
+    self
+  end
+
+  def ne_glider(y, x)
+    filler(y, x, )
+    filler(y-1, x+1, )
+    filler(y-2, x+1, )
+    filler(y-2, x, )
+    filler(y-2, x-1, )
+    self  
+  end
+
+  # def
 
   def born(coordinates)
     coordinates.each do |y_x|
       screen.board[y_x[0]][y_x[1]].state = "o"
     end
+    self
   end
 
 #######################################################
