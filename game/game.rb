@@ -6,7 +6,6 @@ class Game
     @height = height
     @width = width
     @screen = Board.new(self)
-    # create_cells
     populate
   end
 
@@ -15,6 +14,14 @@ class Game
       width.times do |x|
         screen.board[y] << Cell.new("o", self).tap{|c| c.h=y; c.w=x}
       end
+    end
+  end
+
+  def kill(coordinates)
+    # debugger
+    coordinates.each do |y_x|
+      # debugger
+      screen.board[y_x[0]][y_x[1]].state = "."
     end
   end
 

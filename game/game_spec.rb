@@ -36,5 +36,23 @@ describe Game do
     # end
   end
 
+  describe "#kill" do
+    it "should kill all the cells in the board in the coordinates you give it" do
+      my_game = Game.new(5, 5)
+      my_game.kill([ [0, 0], [4, 4] ])
+      expect(my_game.screen.board[0][0].state).to eq(".")
+    end
+    it "should kill all the cells in the board in the coordinates you give it" do
+      my_game = Game.new(5, 5)
+      my_game.kill([ [0, 0], [4, 4] ])
+      expect(my_game.screen.board[4][4].state).to eq(".")
+    end
+    it "should kill all the cells in the board in the coordinates you give it" do
+      my_game = Game.new(5, 5)
+      my_game.kill([ [0, 0], [4, 4] ])
+      expect(my_game.screen.board[4][0].state).to eq("o")
+    end
+  end
+
 
 end
