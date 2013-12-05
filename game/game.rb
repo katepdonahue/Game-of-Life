@@ -13,7 +13,7 @@ class Game
   def populate
     height.times do |y|
       width.times do |x|
-        screen.board[y] << Cell.new("0", self).tap{|c| c.h=y; c.w=x}
+        screen.board[y] << Cell.new("o", self).tap{|c| c.h=y; c.w=x}
       end
     end
   end
@@ -25,7 +25,7 @@ class Game
         new_screen.board[cell.h][cell.w] = cell.tick
       end
     end
-    new_screen
+    self.screen = new_screen
   end
 
 end

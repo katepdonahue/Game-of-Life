@@ -17,7 +17,7 @@ class Board
     # debugger
     board.each do |array|
       array.each do |cell|
-        print cell.state
+        print "#{cell.state}  "
       end
       print "\n"
     end

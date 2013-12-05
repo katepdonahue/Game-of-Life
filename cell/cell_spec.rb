@@ -52,32 +52,32 @@ describe Cell do
 
   describe "#live_neighbors" do
     it "should return an array of cell objects, all with state '0'" do
-      my_cell = Cell.new("0", my_game)
-      neighbors_array = [ Cell.new("0", my_game), Cell.new("-", my_game), Cell.new("-", my_game)]
+      my_cell = Cell.new("o", my_game)
+      neighbors_array = [ Cell.new("o", my_game), Cell.new(".", my_game), Cell.new(".", my_game)]
       expect(my_cell.live_neighbors(neighbors_array).count).to eq(1) 
     end
   end
 
   describe "#tick" do
     it "underpopulation: should change a live cell to dead if 0 or 1 live neighbors" do
-      my_cell = Cell.new("0", my_game)
-      my_cell.stub(:find_neighbors => [ Cell.new("0", my_game)])
-      expect(my_cell.tick.state).to eq ("-")
+      my_cell = Cell.new("o", my_game)
+      my_cell.stub(:find_neighbors => [ Cell.new("o", my_game)])
+      expect(my_cell.tick.state).to eq (".")
     end
     it "should keep a live cell alive if 2 or 3 live neighbors" do
-      my_cell = Cell.new("0", my_game)
-      my_cell.stub(:find_neighbors => [ Cell.new("0", my_game), Cell.new("0", my_game)])
-      expect(my_cell.tick.state).to eq ("0")
+      my_cell = Cell.new("o", my_game)
+      my_cell.stub(:find_neighbors => [ Cell.new("o", my_game), Cell.new("o", my_game)])
+      expect(my_cell.tick.state).to eq ("o")
     end
     it "overcrowding: should change a live cell to dead if 4 or more live neighbors" do
-      my_cell = Cell.new("0", my_game)
-      my_cell.stub(:find_neighbors => [ Cell.new("0", my_game), Cell.new("0", my_game), Cell.new("0", my_game), Cell.new("0", my_game)])
-      expect(my_cell.tick.state).to eq ("-")
+      my_cell = Cell.new("o", my_game)
+      my_cell.stub(:find_neighbors => [ Cell.new("o", my_game), Cell.new("o", my_game), Cell.new("o", my_game), Cell.new("o", my_game)])
+      expect(my_cell.tick.state).to eq (".")
     end
     it "reproduction: should change a dead cell to alive if exactly 3 neighbors live" do
-      my_cell = Cell.new("-", my_game)
-      my_cell.stub(:find_neighbors => [ Cell.new("0", my_game), Cell.new("0", my_game), Cell.new("0", my_game)])
-      expect(my_cell.tick.state).to eq ("0")
+      my_cell = Cell.new(".", my_game)
+      my_cell.stub(:find_neighbors => [ Cell.new("o", my_game), Cell.new("o", my_game), Cell.new("o", my_game)])
+      expect(my_cell.tick.state).to eq ("o")
     end
   end
 

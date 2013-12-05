@@ -15,7 +15,7 @@ class Cell
 
   def live_neighbors(neighbors_array)
     # neighbors_array.map {|cell| cell.state}
-    neighbors_array.select { |cell| cell.state == "0"} # undefined method `state' for nil:NilClass (NoMethodError)
+    neighbors_array.select { |cell| cell.state == "o"} # undefined method `state' for nil:NilClass (NoMethodError)
   end
 
   def find_neighbors
@@ -49,10 +49,10 @@ class Cell
   def tick
     new_cell = self.copy_cell
     num = find_neighbors.count
-    if self.state == "0" # cell is alive
-      new_cell.state = "-" if (num < 2) || (num > 3) #underpopulation and overcrowding
+    if self.state == "o" # cell is alive
+      new_cell.state = "." if (num < 2) || (num > 3) #underpopulation and overcrowding
     else # cell is dead
-      new_cell.state = "0" if num == 3
+      new_cell.state = "o" if num == 3
     end
     new_cell
   end

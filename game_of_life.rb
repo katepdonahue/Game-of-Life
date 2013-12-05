@@ -10,8 +10,9 @@ require './game/game'
 require './cell/cell'
 
 
-my_game = Game.new(10, 30)
+my_game = Game.new(10, 10)
 my_game.screen.print_screen
-sleep(0.5)
+sleep(0.1)
 my_game.generation.print_screen
-
+sleep(0.1)
+my_game.generation.print_screen
