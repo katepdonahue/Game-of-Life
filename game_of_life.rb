@@ -10,9 +10,15 @@ require './game/game'
 require './cell/cell'
 
 
-my_game = Game.new(10, 10)
+my_game = Game.new(30, 30)
+
+# (2..9).each do |i|
+#   my_game.block(i*3, i*3)
+# end
+# my_game.se_glider(1, 0).ne_glider(27, 2).r_spaceship(10, 0)
+my_game.se_glider(1,0).ne_glider(27, 2) #.l_spaceship(15, 29)
 my_game.screen.print_screen
-sleep(0.1)
-my_game.generation.print_screen
-sleep(0.1)
-my_game.generation.print_screen
+loop do
+  sleep(0.2)
+  my_game.generation.print_screen
+end

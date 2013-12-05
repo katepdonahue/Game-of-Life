@@ -58,7 +58,31 @@ class Game
     self  
   end
 
-  # def
+  def r_spaceship(y, x)
+    filler(y, x)
+    filler(y-2, x)
+    filler(y-3, x+1)
+    filler(y-3, x+2)
+    filler(y-3, x+3)
+    filler(y-3, x+4)
+    filler(y-2, x+4)
+    filler(y-1, x+4)
+    filler(y, x+3)
+    self
+  end
+
+  def l_spaceship(y, x)
+    filler(y, x)
+    filler(y-2, x)
+    filler(y-3, x-1)
+    filler(y-3, x-2)
+    filler(y-3, x-3)
+    filler(y-3, x-4)
+    filler(y-2, x-4)
+    filler(y-1, x-4)
+    filler(y, x-3)
+    self
+  end
 
   def born(coordinates)
     coordinates.each do |y_x|
