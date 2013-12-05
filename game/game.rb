@@ -12,16 +12,8 @@ class Game
   def populate
     height.times do |y|
       width.times do |x|
-        screen.board[y] << Cell.new("o", self).tap{|c| c.h=y; c.w=x}
+        screen.board[y] << Cell.new(".", self).tap{|c| c.h=y; c.w=x}
       end
-    end
-  end
-
-  def kill(coordinates)
-    # debugger
-    coordinates.each do |y_x|
-      # debugger
-      screen.board[y_x[0]][y_x[1]].state = "."
     end
   end
 
@@ -34,6 +26,27 @@ class Game
     end
     self.screen = new_screen
   end
+
+######### methods for setting initial state ###########
+  def block(y_x)
+    screen.board[y_x[0]][y_x[1]].state = "o"
+    screen.board[y_x[0]][y_x[1]+1].state = "o"
+    screen.board[y_x[0]+1][y_x[1]+1].state = "o"
+    screen.board[y_x[0]+1][y_x[1]].state = "o"
+  end
+
+  def glider(coordinate)
+
+  end
+
+  def born(coordinates)
+    coordinates.each do |y_x|
+      screen.board[y_x[0]][y_x[1]].state = "o"
+    end
+  end
+
+#######################################################
+
 
 end
 

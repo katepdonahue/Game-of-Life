@@ -36,22 +36,49 @@ describe Game do
     # end
   end
 
-  describe "#kill" do
-    it "should kill all the cells in the board in the coordinates you give it" do
+  describe "#born" do
+    it "should bring alive all the cells in the board in the coordinates you give it" do
       my_game = Game.new(5, 5)
-      my_game.kill([ [0, 0], [4, 4] ])
-      expect(my_game.screen.board[0][0].state).to eq(".")
+      my_game.born([ [0, 0], [4, 4] ])
+      expect(my_game.screen.board[0][0].state).to eq("o")
     end
-    it "should kill all the cells in the board in the coordinates you give it" do
+    it "should bring alive all the cells in the board in the coordinates you give it" do
       my_game = Game.new(5, 5)
-      my_game.kill([ [0, 0], [4, 4] ])
-      expect(my_game.screen.board[4][4].state).to eq(".")
+      my_game.born([ [0, 0], [4, 4] ])
+      expect(my_game.screen.board[4][4].state).to eq("o")
     end
-    it "should kill all the cells in the board in the coordinates you give it" do
+    it "should bring alive all the cells in the board in the coordinates you give it" do
       my_game = Game.new(5, 5)
-      my_game.kill([ [0, 0], [4, 4] ])
-      expect(my_game.screen.board[4][0].state).to eq("o")
+      my_game.born([ [0, 0], [4, 4] ])
+      expect(my_game.screen.board[4][0].state).to eq(".")
     end
+  end
+
+  describe "#block" do
+    it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
+      my_game = Game.new(5, 5)
+      my_game.block([0, 0])
+      expect(my_game.screen.board[0][0].state).to eq("o")
+    end
+    it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
+      my_game = Game.new(5, 5)
+      my_game.block([0, 0])
+      expect(my_game.screen.board[0][1].state).to eq("o")
+    end
+    it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
+      my_game = Game.new(5, 5)
+      my_game.block([0, 0])
+      expect(my_game.screen.board[1][1].state).to eq("o")
+    end
+    it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
+      my_game = Game.new(5, 5)
+      my_game.block([0, 0])
+      expect(my_game.screen.board[1][0].state).to eq("o")
+    end
+  end
+
+  describe "#glider" do
+
   end
 
 
