@@ -35,8 +35,12 @@ class Game
     screen.board[y_x[0]+1][y_x[1]].state = "o"
   end
 
-  def glider(coordinate)
-
+  def glider(y_x)
+    screen.board[y_x[0]][y_x[1]].state = "o"
+    screen.board[y_x[0]+1][y_x[1]+1].state = "o"
+    screen.board[y_x[0]+1][y_x[1]+2].state = "o"
+    screen.board[y_x[0]][y_x[1]+2].state = "o"
+    screen.board[y_x[0]-1][y_x[1]+2].state = "o"
   end
 
   def born(coordinates)
