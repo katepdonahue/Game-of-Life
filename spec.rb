@@ -1,6 +1,34 @@
 require './game_of_life'
 
+
+describe Game do
+
+  describe
+
+
+end
+
+
+describe Board do
+
+
+
+end
+
+
 describe Cell do
+
+
+
+
+end
+
+
+
+
+
+
+
 
   # it "Rule 1: Any live cell with 0 or 1 live neighbors dies" do
   #   cell = Cell.new
@@ -15,15 +43,14 @@ describe Cell do
   #   expect(cell2.state).to eq(" ")
   # end
 
-  describe "#find_neighbors" do
-    my_game = Game.new(10, 30)
-    it "check first clause: left" do
-      expect(my_game.screen[0][0].find_neighbors.count).to eq(3)
-      expect(my_game.screen[0][0].find_neighbors[0].class).to eq(Cell)
-    end
-    it "check second clause: right" do
-      expect(my_game.screen[0][29].find_neighbors.count).to eq(3)
-      expect(my_game.screen[0][29].find_neighbors[0].class).to eq(Cell)
-    end
-  end
-end
+  # describe "#find_neighbors" do
+  #   my_game = Game.new(10, 30)
+  #   it "check first clause: left" do
+  #     expect(my_game.screen[0][0].find_neighbors.count).to eq(3)
+  #     expect(my_game.screen[0][0].find_neighbors[0].class).to eq(Cell)
+  #   end
+  #   it "check second clause: right" do
+  #     expect(my_game.screen[0][29].find_neighbors.count).to eq(3)
+  #     expect(my_game.screen[0][29].find_neighbors[0].class).to eq(Cell)
+  #   end
+  # end

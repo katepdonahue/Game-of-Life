@@ -15,7 +15,7 @@ class Board
 
   def print_screen
     # debugger
-    self.board.each do |array|
+    board.each do |array|
       array.each do |cell|
         print cell.state
       end

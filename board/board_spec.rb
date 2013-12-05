@@ -14,5 +14,8 @@ describe Board do
     end
   end
 
+  describe "#print_screen" do
+    # I don't know how to write tests for print
+  end
 
 end
