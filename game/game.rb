@@ -28,19 +28,19 @@ class Game
   end
 
 ######### methods for setting initial state ###########
-  def block(y_x)
-    screen.board[y_x[0]][y_x[1]].state = "o"
-    screen.board[y_x[0]][y_x[1]+1].state = "o"
-    screen.board[y_x[0]+1][y_x[1]+1].state = "o"
-    screen.board[y_x[0]+1][y_x[1]].state = "o"
+  def block(y, x)
+    screen.board[y][x].state = "o"
+    screen.board[y][x+1].state = "o"
+    screen.board[y+1][x+1].state = "o"
+    screen.board[y+1][x].state = "o"
   end
 
-  def glider(y_x)
-    screen.board[y_x[0]][y_x[1]].state = "o"
-    screen.board[y_x[0]+1][y_x[1]+1].state = "o"
-    screen.board[y_x[0]+1][y_x[1]+2].state = "o"
-    screen.board[y_x[0]][y_x[1]+2].state = "o"
-    screen.board[y_x[0]-1][y_x[1]+2].state = "o"
+  def glider(y, x)
+    screen.board[y][x].state = "o"
+    screen.board[y+1][x+1].state = "o"
+    screen.board[y+1][x+2].state = "o"
+    screen.board[y][x+2].state = "o"
+    screen.board[y-1][x+2].state = "o"
   end
 
   def born(coordinates)

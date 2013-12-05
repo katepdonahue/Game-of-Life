@@ -57,22 +57,22 @@ describe Game do
   describe "#block" do
     it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.block([0, 0])
+      my_game.block(0, 0)
       expect(my_game.screen.board[0][0].state).to eq("o")
     end
     it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.block([0, 0])
+      my_game.block(0, 0)
       expect(my_game.screen.board[0][1].state).to eq("o")
     end
     it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.block([0, 0])
+      my_game.block(0, 0)
       expect(my_game.screen.board[1][1].state).to eq("o")
     end
     it "should bring alive a square of four cells with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.block([0, 0])
+      my_game.block(0, 0)
       expect(my_game.screen.board[1][0].state).to eq("o")
     end
   end
@@ -80,27 +80,27 @@ describe Game do
   describe "#glider" do
     it "should bring alive a glider with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.glider([1, 0])
+      my_game.glider(1, 0)
       expect(my_game.screen.board[1][0].state).to eq("o")
     end
     it "should bring alive a glider with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.glider([1, 0])
+      my_game.glider(1, 0)
       expect(my_game.screen.board[2][1].state).to eq("o")
     end
     it "should bring alive a glider with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.glider([1, 0])
+      my_game.glider(1, 0)
       expect(my_game.screen.board[2][2].state).to eq("o")
     end
     it "should bring alive a glider with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.glider([1, 0])
+      my_game.glider(1, 0)
       expect(my_game.screen.board[1][2].state).to eq("o")
     end
     it "should bring alive a glider with the coordinates passed at the upper left corner" do
       my_game = Game.new(5, 5)
-      my_game.glider([1, 0])
+      my_game.glider(1, 0)
       expect(my_game.screen.board[0][2].state).to eq("o")
     end
   end
