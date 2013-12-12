@@ -13,9 +13,9 @@ class Cell
     @game_object = game_object
   end
 
-  def live_neighbors(neighbors_array)
-    # neighbors_array.map {|cell| cell.state}
-    neighbors_array.select { |cell| cell.state == "o"} # undefined method `state' for nil:NilClass (NoMethodError)
+  def live_neighbors
+    neighbors_array = find_neighbors
+    neighbors_array.select { |cell| cell.state == "o"}
   end
 
   def find_neighbors
@@ -35,8 +35,9 @@ class Cell
     if h+1 < game_object.height
       (neighbors << game_object.screen.board[h+1][w]); end      # row below
     if (h+1 < game_object.height) && (w+1 < game_object.width)
-    (neighbors << game_object.screen.board[h+1][w+1]); end      # row below
-    live_neighbors(neighbors)
+    (neighbors << game_object.screen.board[h+1][w+1]); 
+    end 
+    neighbors
   end
 
   def copy_cell
@@ -48,7 +49,7 @@ class Cell
 
   def tick
     new_cell = self.copy_cell
-    num = find_neighbors.count
+    num = live_neighbors.count
     if self.state == "o" # cell is alive
       new_cell.state = "." if (num < 2) || (num > 3) #underpopulation and overcrowding
     else # cell is dead

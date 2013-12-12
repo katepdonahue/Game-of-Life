@@ -12,6 +12,7 @@ describe Cell do
 
   describe "#find_neighbors" do
     my_cell = Cell.new("0", my_game)
+    my_cell.stub(:live_neighbors){ |arg| arg }
     it "if 1: should not break when a neighbor doesn't exist" do
       my_cell.tap{ |c| c.h = 8; c.w = 0}
       expect(my_cell.find_neighbors.count).to eq(5)
